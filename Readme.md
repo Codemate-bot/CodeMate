@@ -1,4 +1,4 @@
-# Interactive Web Platform
+# CodeMate : Collaborative Coding Bot
 
 Welcome to our interactive web platform! This platform offers three modes tailored to meet your needs: Individual Mode, General Mode, and Team Mode. Whether you're working solo on a project, conducting research, or collaborating with a team, we've got you covered.
 
