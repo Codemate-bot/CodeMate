@@ -1,32 +1,32 @@
 ## Resources
 
-- **AI Model:**
+- [ ] **AI Model:**
     - Description: You'll need a trained AI model capable of understanding and generating code snippets. You can use pre-trained models like GPT (Generative Pre-trained Transformer) or train your own model using TensorFlow or PyTorch.
     - Resources:
         - [OpenAI's GPT](https://openai.com/gpt)
         - [TensorFlow](https://www.tensorflow.org)
         - [PyTorch](https://pytorch.org)
 
-- **Web Development Framework:**
+- [ ] **Web Development Framework:**
     - Description: Frameworks like React can be used to build the client-side interface where users interact with the AI bot.
     - Resources:
         - [React](https://reactjs.org)
 
-- **Real-Time Communication:**
+- [ ] **Real-Time Communication:**
     - Description: For real-time communication between users in team mode, you'll need technologies like WebSockets or server-sent events.
     - Resources:
         - [WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
         - [Socket.IO](https://socket.io)
         - [Pusher](https://pusher.com)
 
-- **Code Collaboration Platform Integration:**
+- [ ] **Code Collaboration Platform Integration:**
     - Description: You'll need to integrate with code collaboration platforms like GitHub, GitLab, or CodeSandbox to fetch and share code snippets.
     - Resources:
         - [GitHub API](https://developer.github.com/v3)
         - [GitLab API](https://docs.gitlab.com/ee/api)
         - [CodeSandbox API](https://codesandbox.io/docs/api)
 
-- **Hosting and Deployment:**
+- [ ] **Hosting and Deployment:**
     - Description: Choose a hosting platform to deploy your server-side application and client-side interface.
     - Resources:
         - [AWS](https://aws.amazon.com)
@@ -34,28 +34,28 @@
 
 ## Use Cases
 
-- **Individual Mode:**
+- [ ] **Individual Mode:**
     - A developer working on a project can use the AI bot in individual mode to get code suggestions, refactorings, or debugging assistance.
 
-- **Team Mode:**
+- [ ] **Team Mode:**
     - A team of developers collaborating on a project can use the AI bot in team mode to share code snippets, discuss solutions, and provide feedback in real-time.
 
-- **Code Review:**
+- [ ] **Code Review:**
     - Developers can use the AI bot to facilitate code reviews by sharing code snippets and discussing potential improvements or issues with team members.
 
-- **Learning and Teaching:**
+- [ ] **Learning and Teaching:**
     - Educators and students can use the AI bot for learning and teaching programming concepts. The bot can provide explanations, examples, and exercises tailored to the user's level of expertise.
 
-- **Hackathons and Coding Competitions:**
+- [ ] **Hackathons and Coding Competitions:**
     - Participants in hackathons or coding competitions can use the AI bot to brainstorm ideas, collaborate on projects, and receive assistance with coding challenges.
 
 ## Challenges
 
-- **Bug Bounty Programming:**
+- [ ] **Bug Bounty Programming:**
     - Find and fix bugs in the AI bot's codebase to improve its performance and reliability.
 
-- **Interview Prep:**
+- [ ] **Interview Prep:**
     - Use the AI bot to practice coding interview questions and receive feedback on your solutions.
 
-- **Documentation Generation:**
+- [ ] **Documentation Generation:**
     - Generate documentation for your codebase using the AI bot's natural language processing capabilities.
