@@ -27,7 +27,3 @@ To get started, simply follow the instructions below based on your desired mode:
 - **User-friendly Interface**: Navigate through the platform effortlessly with our intuitive design.
 - **Real-time Collaboration**: Collaborate with team members in real-time, making teamwork seamless.
 - **Feedback Mechanism**: Provide feedback and suggestions directly through the platform to help us improve.
-
-## Feedback
-
-We value your feedback! If you have any suggestions, encounter issues, or just want to say hello, feel free to reach out to us via [email](mailto:info@example.com) or [Twitter](https://twitter.com/example).
