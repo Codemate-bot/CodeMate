@@ -1,4 +1,8 @@
-export default function CodeMate() {
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+const CodeMate = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-[#FAF1E4] flex p-[0_0_10px_0] w-[1920px] box-sizing-border">
       <div className="relative flex flex-row w-[1932px] h-[fit-content] box-sizing-border">
@@ -38,18 +42,19 @@ export default function CodeMate() {
                 <div className="flex flex-row box-sizing-border">
                   <div className="rounded-[40px] bg-[#CEDEBD] m-[0_40px_0_0] flex p-[15px_0.5px_15px_0] w-[165px] h-[fit-content] box-sizing-border">
                     <span className="break-words font-['Poppins'] flex justify-center ifont-medium text-[13px] leading-[1] text-[#414084]">
-                    Individual Mode
+                    <button onClick={() => navigate('/IndividualMode')}>Individual Mode</button>
                     </span>
                   </div>
                   <div className="m-[15px_0_15px_0] flex box-sizing-border">
                     <span className="break-words font-['Poppins'] font-medium text-[13px] leading-[1] text-[#FFFFFF]">
-                    General Mode
+                    <button onClick={() => navigate('/GeneralMode')}>General Mode</button>
+                  
                     </span>
                   </div>
                 </div>
                 <div className="m-[15px_0_15px_0] flex box-sizing-border">
                   <span className="break-words font-['Poppins'] font-medium text-[13px] leading-[1] text-[#FFFFFF]">
-                  Team Mode
+                  <button onClick={() => navigate('/TeamMode')}>Team Mode</button>
                   </span>
                 </div>
               </div>
@@ -182,3 +187,4 @@ export default function CodeMate() {
     </div>
   );
 } 
+export default CodeMate;
