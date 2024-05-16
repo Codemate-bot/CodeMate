@@ -43,6 +43,7 @@ export default function GeneralMode() {
             New Chat
           </span>
         </div>
+        <div className="flex-grow" />
         <div
           className="rounded-[45px] bg-[#FFEED6] relative p-6 w-full text-center cursor-pointer"
           onClick={handleLogOut}
@@ -50,6 +51,7 @@ export default function GeneralMode() {
           <span className="font-['Plus_Jakarta_Sans'] font-semibold text-[14px] text-[#000000]">
             Log Out
           </span>
+    
         </div>
       </div>
       <div className="flex flex-col w-full p-4 lg:p-10 box-sizing-border">
@@ -71,6 +73,7 @@ export default function GeneralMode() {
                 >
                   <span className="font-['Poppins'] font-medium text-[13px]">
                     Individual Mode
+                    
                   </span>
                 </div>
               </div>

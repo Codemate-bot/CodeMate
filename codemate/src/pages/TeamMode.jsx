@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function TeamMode() {
+export default function GeneralMode() {
   const [currentMode, setCurrentMode] = useState('Team Mode');
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
@@ -43,6 +43,7 @@ export default function TeamMode() {
             New Chat
           </span>
         </div>
+        <div className="flex-grow" />
         <div
           className="rounded-[45px] bg-[#FFEED6] relative p-6 w-full text-center cursor-pointer"
           onClick={handleLogOut}
