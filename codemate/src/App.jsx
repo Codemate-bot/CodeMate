@@ -5,7 +5,7 @@ import './index.css';
 // import F12Main from './F12Main';
 
 import CodeMate from './pages/CodeMate';
-import GenralMode from './pages/GenralMode';
+import GenralMode from './pages/GeneralMode';
 import IndividualMode from './pages/IndividualMode';
 import TeamMode from './pages/TeamMode';
 

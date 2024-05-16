@@ -37,7 +37,7 @@ export default function CodeMate() {
               <div className="rounded-[40px] border-[1px_solid_#CEDEBD] bg-[#8579B2] flex flex-row justify-between p-[9px_39.4px_9px_9px] w-[495px] box-sizing-border">
                 <div className="flex flex-row box-sizing-border">
                   <div className="rounded-[40px] bg-[#CEDEBD] m-[0_40px_0_0] flex p-[15px_0.5px_15px_0] w-[165px] h-[fit-content] box-sizing-border">
-                    <span className="break-words font-['Poppins'] font-medium text-[13px] leading-[1] text-[#414084]">
+                    <span className="break-words font-['Poppins'] flex justify-center ifont-medium text-[13px] leading-[1] text-[#414084]">
                     Individual Mode
                     </span>
                   </div>
@@ -100,17 +100,18 @@ export default function CodeMate() {
                   </div>
                 </div>
                 <div className="m-[0_0_120px_0] flex flex-row self-start gap-[0_20px] w-[692px] box-sizing-border">
-                  <div className="rounded-[45px] bg-[#8579B2] flex p-[19px_0.7px_19px_0] w-[220px] box-sizing-border">
-                    <span className="break-words font-['Plus_Jakarta_Sans'] font-semibold text-[14px] leading-[1.143] text-[#FFFFFF]">
-                    Make Response Shorter
-                    </span>
-                  </div>
-                  <div className="rounded-[45px] bg-[#8579B2] flex p-[19px_0.4px_19px_0] w-[245px] box-sizing-border">
+                <div className="rounded-[45px] bg-[#8579B2] flex justify-center items-center p-[19px_0.7px_19px_0] w-[220px] box-sizing-border">
+                <span className="break-words font-['Plus_Jakarta_Sans'] font-semibold text-[14px] leading-[1.143] text-[#FFFFFF]">
+                  Make Response Shorter
+                </span>
+              </div>
+              
+                  <div className="rounded-[45px] bg-[#8579B2] flex justify-center items-center p-[19px_0.4px_19px_0] w-[245px] box-sizing-border">
                     <span className="break-words font-['Plus_Jakarta_Sans'] font-semibold text-[14px] leading-[1.143] text-[#FFFFFF]">
                     Explain it to me like a lawyer
                     </span>
                   </div>
-                  <div className="rounded-[45px] bg-[#8579B2] flex p-[19px_0.2px_19px_0] w-[187px] box-sizing-border">
+                  <div className="rounded-[45px] bg-[#8579B2] flex justify-center items-center p-[19px_0.2px_19px_0] w-[187px] box-sizing-border">
                     <span className="break-words font-['Plus_Jakarta_Sans'] font-semibold text-[14px] leading-[1.143] text-[#FFFFFF]">
                     Tell me about more
                     </span>
