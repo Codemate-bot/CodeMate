@@ -1,0 +1,45 @@
+/* Assuming you are using TailwindCSS
+.bg-[#FAF1E4] {
+    background-color: #FAF1E4;
+  }
+  
+  .bg-[#8579B2] {
+    background-color: #8579B2;
+  }
+  
+  .bg-[#414084] {
+    background-color: #414084;
+  }
+  
+  .bg-[#FFEED6] {
+    background-color: #FFEED6;
+  }
+  
+  .text-[#FFFFFF] {
+    color: #FFFFFF;
+  }
+  
+  .text-[#CEDEBD] {
+    color: #CEDEBD;
+  }
+  
+  .text-[#000000] {
+    color: #000000;
+  }
+  
+  .shadow-[0px_0px_14px_0px_rgba(0,0,0,0.15)] {
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.15);
+  }
+  
+  .box-sizing-border {
+    box-sizing: border-box;
+  }
+  
+  .font-['Poppins'] {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .font-['Plus_Jakarta_Sans'] {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  

@@ -1,24 +1,25 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './index.css';
-
-import CodeMate from './pages/CodeMate';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import GeneralMode from './pages/GeneralMode';
 import IndividualMode from './pages/IndividualMode';
 import TeamMode from './pages/TeamMode';
+import About from './pages/About'; // Create About component
+import Home from './pages/Home'; // Create Home component
+import NewMessage from './pages/NewMessage'; // Create NewMessage component
 
-
-const router = createBrowserRouter([
-  { path: '/', element: <CodeMate /> },
-// { path: '/CodeMate', element: <CodeMate /> },
-{ path: '/GeneralMode', element: <GeneralMode /> },
-{ path: '/IndividualMode', element: <IndividualMode /> },
-{ path: '/TeamMode', element: <TeamMode /> },
-]);
-
-export default function App() {
+const App = () => {
   return (
-    <RouterProvider router={router} />
+    <Router>
+      <Routes>
+        <Route path="/" element={<GeneralMode />} />
+        <Route path="/individual-mode" element={<IndividualMode />} />
+        <Route path="/team-mode" element={<TeamMode />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/new-message" element={<NewMessage />} />
+      </Routes>
+    </Router>
   );
-}
+};
+
+export default App;

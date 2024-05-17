@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function GeneralMode() {
-  const [currentMode, setCurrentMode] = useState('Individual Mode');
+  const [currentMode, setCurrentMode] = useState('General Mode');
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleModeChange = (mode) => {
     setCurrentMode(mode);
+    if (mode === 'Individual Mode') {
+      navigate('/individual-mode');
+    } else if (mode === 'Team Mode') {
+      navigate('/team-mode');
+    } else {
+      navigate('/');
+    }
   };
 
   const handleNewChat = () => {
@@ -24,8 +33,12 @@ export default function GeneralMode() {
     // Implement logout logic here
   };
 
+  const handleBackToDiscord = () => {
+    // Implement back to Discord logic here
+  };
+
   return (
-    <div className="bg-[#FAF1E4] flex flex-col lg:flex-row w-full h-full box-sizing-border">
+    <div className="bg-[#FAF1E4] flex flex-col lg:flex-row w-full h-full min-h-screen box-sizing-border">
       <div className="bg-[#8579B2] flex flex-col p-6 w-full lg:w-[330px] box-sizing-border">
         <div className="relative m-0 lg:m-0 lg:self-center flex justify-center box-sizing-border">
           <span className="font-['Poppins'] font-bold text-[26px] leading-[1] text-[#FFFFFF]">
@@ -43,9 +56,33 @@ export default function GeneralMode() {
             New Chat
           </span>
         </div>
+        <div
+          className="rounded-[40px] bg-[#414084] relative mb-6 p-6 w-full text-center cursor-pointer"
+          onClick={() => navigate('/about')}
+        >
+          <span className="font-['Poppins'] font-normal text-[15px] text-[#FFFFFF]">
+            About
+          </span>
+        </div>
+        <div
+          className="rounded-[40px] bg-[#414084] relative mb-6 p-6 w-full text-center cursor-pointer"
+          onClick={() => navigate('/home')}
+        >
+          <span className="font-['Poppins'] font-normal text-[15px] text-[#FFFFFF]">
+            Home
+          </span>
+        </div>
         <div className="flex-grow" />
         <div
-          className="rounded-[45px] bg-[#FFEED6] relative p-6 w-full text-center cursor-pointer"
+          className="rounded-[40px] bg-[#414084] relative mb-6 p-6 w-full text-center cursor-pointer"
+          onClick={handleBackToDiscord}
+        >
+          <span className="font-['Poppins'] font-normal text-[15px] text-[#FFFFFF]">
+            Back to Discord
+          </span>
+        </div>
+        <div
+          className="rounded-[45px] bg-[#FFEED6] relative p-6 w-full text-center cursor-pointer mt-6"
           onClick={handleLogOut}
         >
           <span className="font-['Plus_Jakarta_Sans'] font-semibold text-[14px] text-[#000000]">
@@ -55,17 +92,9 @@ export default function GeneralMode() {
       </div>
       <div className="flex flex-col w-full p-4 lg:p-10 box-sizing-border">
         <div className="bg-[#414084] flex flex-row justify-between p-6 w-full mb-10 box-sizing-border rounded-lg">
-          <div className="rounded-[40px] border-[1px_solid_#CEDEBD] bg-[#8579B2] flex p-2 w-[495px] box-sizing-border">
+          <div className="rounded-[40px] border-[1px_solid_#CEDEBD] bg-[#8579B2] flex p-2 w-full max-w-[495px] box-sizing-border">
             <div className="flex flex-row justify-between w-full h-full box-sizing-border">
               <div className="flex flex-row">
-                <div
-                  className={`rounded-[40px] p-4 cursor-pointer ${currentMode === 'Individual Mode' ? 'bg-[#CEDEBD]' : 'bg-[#8579B2]'}`}
-                  onClick={() => handleModeChange('Individual Mode')}
-                >
-                  <span className="font-['Poppins'] font-medium text-[13px] text-[#414084]">
-                    Individual Mode
-                  </span>
-                </div>
                 <div
                   className={`ml-4 p-4 cursor-pointer ${currentMode === 'General Mode' ? 'text-[#CEDEBD]' : 'text-[#FFFFFF]'}`}
                   onClick={() => handleModeChange('General Mode')}
@@ -74,14 +103,22 @@ export default function GeneralMode() {
                     General Mode
                   </span>
                 </div>
-              </div>
-              <div
-                className={`ml-4 p-4 cursor-pointer ${currentMode === 'Team Mode' ? 'text-[#CEDEBD]' : 'text-[#FFFFFF]'}`}
-                onClick={() => handleModeChange('Team Mode')}
-              >
-                <span className="font-['Poppins'] font-medium text-[13px]">
-                  Team Mode
-                </span>
+                <div
+                  className={`ml-4 p-4 cursor-pointer ${currentMode === 'Individual Mode' ? 'text-[#CEDEBD]' : 'text-[#FFFFFF]'}`}
+                  onClick={() => handleModeChange('Individual Mode')}
+                >
+                  <span className="font-['Poppins'] font-medium text-[13px]">
+                    Individual Mode
+                  </span>
+                </div>
+                <div
+                  className={`ml-4 p-4 cursor-pointer ${currentMode === 'Team Mode' ? 'text-[#CEDEBD]' : 'text-[#FFFFFF]'}`}
+                  onClick={() => handleModeChange('Team Mode')}
+                >
+                  <span className="font-['Poppins'] font-medium text-[13px]">
+                    Team Mode
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -91,86 +128,15 @@ export default function GeneralMode() {
             </div>
             <div className="rounded-[21px] bg-[url('assets/images/Ellipse139.jpeg')] bg-cover bg-no-repeat w-[42px] h-[42px]" />
           </div>
+  
         </div>
-        <div className="flex flex-col lg:flex-row w-full box-sizing-border">
-          <div className="flex flex-col w-full lg:w-[330px] mb-10 lg:mb-0 box-sizing-border">
-            <div className="flex flex-col gap-6">
-              <div className="rounded-[10px] border-[1px_solid_#BA9359] p-6 box-sizing-border">
-                <div className="font-['Plus_Jakarta_Sans'] font-semibold text-[14px] text-[#8579B2] mb-2">
-                  Come up with concepts
-                </div>
-                <span className="font-['Plus_Jakarta_Sans'] font-normal text-[12px] text-[#849771]">
-                  for a retro style arcade game
-                </span>
-              </div>
-              <div className="rounded-[10px] border-[1px_solid_#BA9359] p-6 box-sizing-border">
-                <div className="font-['Plus_Jakarta_Sans'] font-semibold text-[14px] text-[#8579B2] mb-2">
-                  Explain why the code happen
-                </div>
-                <span className="font-['Plus_Jakarta_Sans'] font-normal text-[12px] text-[#849771]">
-                  to a kid who loves to watch in the microwave
-                </span>
-              </div>
-              <div className="rounded-[10px] border-[1px_solid_#BA9359] p-6 box-sizing-border">
-                <div className="font-['Plus_Jakarta_Sans'] font-semibold text-[14px] text-[#8579B2] mb-2">
-                  Suggest ways to introduce yourself
-                </div>
-                <span className="font-['Plus_Jakarta_Sans'] font-normal text-[12px] text-[#849771]">
-                  when it happens
-                </span>
-              </div>
-              <div className="rounded-[10px] border-[1px_solid_#BA9359] p-6 box-sizing-border">
-                <div className="font-['Plus_Jakarta_Sans'] font-semibold text-[14px] text-[#8579B2] mb-2">
-                  List the top 10 Scifi series
-                </div>
-                <span className="font-['Plus_Jakarta_Sans'] font-normal text-[12px] text-[#849771]">
-                  and why they are great
-                </span>
-              </div>
-              <div className="rounded-[10px] border-[1px_solid_#BA9359] p-6 box-sizing-border">
-                <div className="font-['Plus_Jakarta_Sans'] font-semibold text-[14px] text-[#8579B2] mb-2">
-                  How to make your neighbour do whatever you say
-                </div>
-                <span className="font-['Plus_Jakarta_Sans'] font-normal text-[12px] text-[#849771]">
-                  given that they don’t like to talk to anyone
-                </span>
-              </div>
-              <div className="rounded-[10px] border-[1px_solid_#BA9359] p-6 box-sizing-border">
-                <div className="font-['Plus_Jakarta_Sans'] font-semibold text-[14px] text-[#8579B2] mb-2">
-                  Plan a weekend getaway
-                </div>
-                <span className="font-['Plus_Jakarta_Sans'] font-normal text-[12px] text-[#849771]">
-                  on a budget
-                </span>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col w-full box-sizing-border">
-            <div className="flex flex-col w-full h-[650px] box-sizing-border">
-              <div className="bg-[#FFFFFF] flex flex-col w-full h-full box-sizing-border overflow-auto">
-                {messages.map((message, index) => (
-                  <div key={index} className="p-4 border-b-[1px_solid_#DDD]">
-                    {message}
-                  </div>
-                ))}
-              </div>
-              <div className="rounded-[30px] bg-[#FFFFFF] border-[1px_solid_#FFFFFF] shadow-[0px_10px_20px_rgba(0,0,0,0.08)] flex flex-col p-6 w-full h-fit box-sizing-border mt-4">
-                <textarea
-                  className="w-full p-4 border-[1px_solid_#DDD] rounded-[5px]"
-                  rows="3"
-                  placeholder="Type a message"
-                  value={newMessage}
-                  onChange={(e) => setNewMessage(e.target.value)}
-                />
-                <button
-                  className="bg-[#414084] text-white p-4 rounded-[5px] mt-4 self-end"
-                  onClick={handleSendMessage}
-                >
-                  Send
-                </button>
-              </div>
-            </div>
-          </div>
+        <div className="absolute bottom-4 right-4">
+          <button
+            className="bg-[#414084] text-white p-4 rounded-full shadow-lg"
+            onClick={() => navigate('/new-message')}
+          >
+            <span className="material-icons">message</span>
+          </button>
         </div>
       </div>
     </div>
