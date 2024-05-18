@@ -13,6 +13,14 @@ const NewMessage = () => {
     // Implement back to Discord logic here
   };
 
+  const handleProceed = () => {
+    if (selectedRole === 'Normal User') {
+      navigate('/normal-user-page');
+    } else if (selectedRole === 'Admin User') {
+      navigate('/admin-user-page');
+    }
+  };
+
   return (
     <div className="flex flex-row w-full h-screen box-sizing-border">
       <div className="bg-[#8579B2] flex flex-col p-6 w-[330px] box-sizing-border">
@@ -62,7 +70,7 @@ const NewMessage = () => {
         </div>
         <button
           className="mt-6 bg-[#414084] text-white p-4 rounded-[20px] shadow-[0px_10px_20px_rgba(0,0,0,0.08)]"
-          onClick={() => alert(`Selected role: ${selectedRole}`)}
+          onClick={handleProceed}
         >
           Proceed
         </button>

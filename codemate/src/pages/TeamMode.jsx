@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from './ThemeContext';
 
 export default function GeneralMode() {
   const [currentMode, setCurrentMode] = useState('Team Mode');
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   const handleModeChange = (mode) => {
     setCurrentMode(mode);
@@ -38,15 +40,15 @@ export default function GeneralMode() {
   };
 
   return (
-    <div className="bg-[#FAF1E4] flex flex-col lg:flex-row w-full h-full min-h-screen box-sizing-border">
-      <div className="bg-[#8579B2] flex flex-col p-6 w-full lg:w-[330px] box-sizing-border">
+    <div className={`flex flex-col lg:flex-row w-full h-full min-h-screen box-sizing-border ${theme === 'light' ? 'bg-[#FAF1E4]' : 'bg-black text-white'}`}>
+      <div className={`flex flex-col p-6 w-full lg:w-[330px] box-sizing-border ${theme === 'light' ? 'bg-[#8579B2]' : 'bg-[#333]'}`}>
         <div className="relative m-0 lg:m-0 lg:self-center flex justify-center box-sizing-border">
           <span className="font-['Poppins'] font-bold text-[26px] leading-[1] text-[#FFFFFF]">
             Code Mate
           </span>
         </div>
         <div className="relative mt-10 mb-10 lg:mt-10 lg:mb-10 w-full h-[1px] box-sizing-border">
-          <div className="bg-[#414084] w-full h-[1px]" />
+          <div className={`w-full h-[1px] ${theme === 'light' ? 'bg-[#414084]' : 'bg-gray-500'}`} />
         </div>
         <div
           className="rounded-[40px] bg-[#414084] relative mb-6 p-6 w-full text-center cursor-pointer"
@@ -82,17 +84,17 @@ export default function GeneralMode() {
           </span>
         </div>
         <div
-          className="rounded-[45px] bg-[#FFEED6] relative p-6 w-full text-center cursor-pointer mt-6"
+          className={`rounded-[45px] relative p-6 w-full text-center cursor-pointer mt-6 ${theme === 'light' ? 'bg-[#FFEED6] text-[#000000]' : 'bg-[#555] text-[#FFFFFF]'}`}
           onClick={handleLogOut}
         >
-          <span className="font-['Plus_Jakarta_Sans'] font-semibold text-[14px] text-[#000000]">
+          <span className="font-['Plus_Jakarta_Sans'] font-semibold text-[14px]">
             Log Out
           </span>
         </div>
       </div>
       <div className="flex flex-col w-full p-4 lg:p-10 box-sizing-border">
-        <div className="bg-[#414084] flex flex-row justify-between p-6 w-full mb-10 box-sizing-border rounded-lg">
-          <div className="rounded-[40px] border-[1px_solid_#CEDEBD] bg-[#8579B2] flex p-2 w-full max-w-[495px] box-sizing-border">
+        <div className={`flex flex-row justify-between p-6 w-full mb-10 box-sizing-border rounded-lg ${theme === 'light' ? 'bg-[#414084]' : 'bg-[#444]'}`}>
+          <div className="rounded-[40px] border-[1px_solid_#CEDEBD] flex p-2 w-full max-w-[495px] box-sizing-border" style={{ borderColor: theme === 'light' ? '#CEDEBD' : '#555' }}>
             <div className="flex flex-row justify-between w-full h-full box-sizing-border">
               <div className="flex flex-row">
                 <div
@@ -123,11 +125,15 @@ export default function GeneralMode() {
             </div>
           </div>
           <div className="flex flex-row items-center box-sizing-border">
-            <div className="shadow-[0px_0px_14px_0px_rgba(0,0,0,0.15)] rounded-[20px] bg-[#FFFFFF] flex items-center p-1 mr-5 w-[47px] h-[23px] box-sizing-border">
-              <div className="rounded-[20px] bg-[#25293F] w-[19px] h-[19px] ml-auto mr-1" />
+            <div
+              className="shadow-[0px_0px_14px_0px_rgba(0,0,0,0.15)] rounded-[20px] bg-[#FFFFFF] flex items-center p-1 mr-5 w-[47px] h-[23px] box-sizing-border cursor-pointer"
+              onClick={toggleTheme}
+            >
+              <div
+                className={`rounded-[20px] ${theme === 'light' ? 'bg-[#25293F]' : 'bg-[#FFFFFF]'} w-[19px] h-[19px] ml-auto mr-1`}
+              />
             </div>
             <div className="rounded-[21px] bg-[url('assets/images/Ellipse139.jpeg')] bg-cover bg-no-repeat w-[42px] h-[42px]" />
-        
           </div>
         </div>
         <div className="absolute bottom-4 right-4">

@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  return (
-    <div className="flex flex-col w-full h-full box-sizing-border p-6">
-      <h2 className="text-center text-2xl font-bold">Home</h2>
-      <div className="mt-4">
-        {/* Placeholder content for Home */}
-      </div>
-    </div>
-  );
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate('/');
+  }, [navigate]);
+
+  return null; // No need to render anything as it redirects immediately
 };
 
 export default Home;
+
