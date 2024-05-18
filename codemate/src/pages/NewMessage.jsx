@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTheme } from './ThemeContext';
 
 const NewMessage = () => {
   const [selectedRole, setSelectedRole] = useState('Normal User');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentMode, setCurrentMode] = useState('General Mode');
+  const [isLoginVisible, setIsLoginVisible] = useState(false);
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   const handleLogOut = () => {
     // Implement logout logic here
@@ -21,59 +26,140 @@ const NewMessage = () => {
     }
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleModeChange = (mode) => {
+    setCurrentMode(mode);
+    // Add navigation logic if required
+  };
+
   return (
-    <div className="flex flex-row w-full h-screen box-sizing-border">
-      <div className="bg-[#8579B2] flex flex-col p-6 w-[330px] box-sizing-border">
-        <div className="relative m-0 self-center flex justify-center box-sizing-border">
+    <div className={`flex flex-col lg:flex-row w-full h-full min-h-screen box-sizing-border ${theme === 'light' ? 'bg-[#FAF1E4]' : 'bg-black text-white'}`}>
+      {isLoginVisible && <Login onLogin={() => setIsLoginVisible(false)} />}
+      <div className={`flex flex-col p-6 w-full lg:w-[330px] box-sizing-border ${theme === 'light' ? 'bg-[#8579B2]' : 'bg-[#333]'}`}>
+        <div className="relative m-0 lg:m-0 lg:self-center flex justify-between items-center box-sizing-border">
           <span className="font-['Poppins'] font-bold text-[26px] leading-[1] text-[#FFFFFF]">
-            Code Mate
+            CodeMate
           </span>
+          <button className="lg:hidden text-white" onClick={toggleMenu}>
+            <span className="material-icons">menu</span>
+          </button>
         </div>
-        <div className="relative mt-10 mb-10 w-full h-[1px] box-sizing-border">
-          <div className="bg-[#414084] w-full h-[1px]" />
+        <div className={`relative mt-10 mb-10 lg:mt-10 lg:mb-10 w-full h-[1px] box-sizing-border ${isMenuOpen ? 'block' : 'hidden'} lg:block`}>
+          <div className={`w-full h-[1px] ${theme === 'light' ? 'bg-[#414084]' : 'bg-gray-500'}`} />
         </div>
-        <div className="flex-grow" />
-        <div
-          className="rounded-[40px] bg-[#414084] relative mb-6 p-6 w-full text-center cursor-pointer"
-          onClick={handleBackToDiscord}
-        >
-          <span className="font-['Poppins'] font-normal text-[15px] text-[#FFFFFF]">
-            Back to Discord
-          </span>
-        </div>
-        <div
-          className="rounded-[45px] bg-[#FFEED6] relative p-6 w-full text-center cursor-pointer mt-6"
-          onClick={handleLogOut}
-        >
-          <span className="font-['Plus_Jakarta_Sans'] font-semibold text-[14px] text-[#000000]">
-            Log Out
-          </span>
-        </div>
-      </div>
-      <div className="flex flex-col justify-center items-center flex-grow bg-[#FAF1E4] p-6 box-sizing-border">
-        <div className="w-full max-w-md bg-[#8579B2] p-6 rounded-[30px] shadow-[0px_10px_20px_rgba(0,0,0,0.08)]">
-          <h3 className="text-xl font-medium text-center text-white mb-4">Select User Type</h3>
-          <div className="flex flex-col space-y-4">
-            <button
-              className={`p-4 rounded-[20px] ${selectedRole === 'Normal User' ? 'bg-[#CEDEBD] text-[#414084]' : 'bg-white text-[#414084]'}`}
-              onClick={() => setSelectedRole('Normal User')}
-            >
-              Normal User
-            </button>
-            <button
-              className={`p-4 rounded-[20px] ${selectedRole === 'Admin User' ? 'bg-[#CEDEBD] text-[#414084]' : 'bg-white text-[#414084]'}`}
-              onClick={() => setSelectedRole('Admin User')}
-            >
-              Admin User
-            </button>
+        <div className={`lg:flex lg:flex-col ${isMenuOpen ? 'block' : 'hidden'} lg:block`}>
+          <div
+            className="rounded-[50px] bg-[#414084] relative mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555]"
+            onClick={() => navigate('/new-chat')}
+          >
+            <span className="font-['Poppins'] font-normal text-[15px] text-[#FFFFFF]">
+              New Chat
+            </span>
+          </div>
+          <div
+            className="rounded-[50px] bg-[#414084] relative mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555]"
+            onClick={() => navigate('/about')}
+          >
+            <span className="font-['Poppins'] font-normal text-[15px] text-[#FFFFFF]">
+              About
+            </span>
+          </div>
+          <div
+            className="rounded-[50px] bg-[#414084] relative mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555]"
+            onClick={() => navigate('/home')}
+          >
+            <span className="font-['Poppins'] font-normal text-[15px] text-[#FFFFFF]">
+              Home
+            </span>
+          </div>
+          <div className="flex-grow" />
+          <div
+            className="rounded-[50px] bg-[#49625b] relative mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555]"
+            onClick={handleBackToDiscord}
+          >
+            <span className="font-['Poppins'] font-semibold text-[15px] text-[#FFFFFF]">
+              Back to Discord
+            </span>
+          </div>
+          <div
+            className="rounded-[50px] bg-[#cbffbe] relative mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555]"
+            onClick={handleLogOut}
+          >
+            <span className="font-['Plus_Jakarta_Sans'] font-semibold text-[14px] text-[#3a2e2e]">
+              Log Out
+            </span>
           </div>
         </div>
-        <button
-          className="mt-6 bg-[#414084] text-white p-4 rounded-[20px] shadow-[0px_10px_20px_rgba(0,0,0,0.08)]"
-          onClick={handleProceed}
-        >
-          Proceed
-        </button>
+      </div>
+      <div className="flex flex-col w-full p-1 lg:p-1 box-sizing-border">
+        <div className={`flex flex-row justify-between p-1 w-full mb-1 box-sizing-border rounded-lg ${theme === 'light' ? 'bg-[#414084]' : 'bg-[#444]'}`}>
+          <div className="rounded-[40px] border-[1px_solid_#CEDEBD] flex p- w-full max-w-[495px] box-sizing-border" style={{ borderColor: theme === 'light' ? '#CEDEBD' : '#555' }}>
+            <div className="flex flex-row">
+              <div
+                className={`ml-4 p-4 cursor-pointer ${currentMode === 'General Mode' ? 'text-[#601f5d]' : 'text-[#FFFFFF]'}`}
+                onClick={() => handleModeChange('General Mode')}
+              >
+                <span className="rounded-[50px] bg-[#c578d2] relative mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555] font-['Poppins'] font-medium text-[13px]">
+                  General Mode
+                </span>
+              </div>
+              <div
+                className={`ml-4 p-4 cursor-pointer ${currentMode === 'Individual Mode' ? 'text-[#CEDEBD]' : 'text-[#FFFFFF]'}`}
+                onClick={() => handleModeChange('Individual Mode')}
+              >
+                <span className=" rounded-[50px] bg-[#c578d2] relative mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555] font-['Poppins'] font-medium text-[13px]">
+                  Individual Mode
+                </span>
+              </div>
+              <div
+                className={`ml-4 p-4 cursor-pointer ${currentMode === 'Team Mode' ? 'text-[#CEDEBD]' : 'text-[#FFFFFF]'}`}
+                onClick={() => handleModeChange('Team Mode')}
+              >
+                <span className="rounded-[50px] bg-[#c578d2] relative mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555] font-['Poppins'] font-medium text-[13px]">
+                  Team Mode
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-row items-center box-sizing-border">
+            <div
+              className="shadow-[0px_0px_14px_0px_rgba(0,0,0,0.15)] rounded-[20px] bg-[#FFFFFF] flex items-center p-1 mr-5 w-[47px] h-[23px] box-sizing-border cursor-pointer transition duration-300 hover:shadow-[0px_0px_14px_0px_rgba(0,0,0,0.3)]"
+              onClick={toggleTheme}
+            >
+              <div
+                className={`rounded-[20px] ${theme === 'light' ? 'bg-[#25293F]' : 'bg-[#FFFFFF]'} w-[19px] h-[19px] ml-auto mr-1 transition duration-300`}
+              />
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col justify-center items-center flex-grow p-6 box-sizing-border">
+          <div className="w-full max-w-md bg-[#8579B2] p-6 rounded-[30px] shadow-[0px_10px_20px_rgba(0,0,0,0.08)]">
+            <h3 className="text-xl font-medium text-center text-white mb-4">Select User Type</h3>
+            <div className="flex flex-col space-y-4">
+              <button
+                className={`p-4 rounded-[20px] ${selectedRole === 'Normal User' ? 'bg-[#CEDEBD] text-[#414084]' : 'bg-white text-[#414084]'}`}
+                onClick={() => setSelectedRole('Normal User')}
+              >
+                Normal User
+              </button>
+              <button
+                className={`p-4 rounded-[20px] ${selectedRole === 'Admin User' ? 'bg-[#CEDEBD] text-[#414084]' : 'bg-white text-[#414084]'}`}
+                onClick={() => setSelectedRole('Admin User')}
+              >
+                Admin User
+              </button>
+            </div>
+          </div>
+          <button
+            className="mt-6 bg-[#414084] text-white p-4 rounded-[20px] shadow-[0px_10px_20px_rgba(0,0,0,0.08)]"
+            onClick={handleProceed}
+          >
+            Proceed
+          </button>
+        </div>
       </div>
     </div>
   );

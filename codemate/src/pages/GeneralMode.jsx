@@ -153,7 +153,7 @@ export default function GeneralMode() {
         <div className="absolute bottom-4 right-4">
           <button
             className="bg-[#414084] text-white p-4 rounded-full shadow-lg transition duration-300 hover:bg-[#555]"
-            onClick={() => navigate('/new-message')}
+            onClick={() => navigate('/message')}
           >
             <span className="material-icons">message</span>
           </button>
