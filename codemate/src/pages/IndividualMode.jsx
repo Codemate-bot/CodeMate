@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from './ThemeContext';
 import Login from './Login';
+import Apps from '../../../codeeditor/src/Apps';
 
 export default function GeneralMode() {
   const [currentMode, setCurrentMode] = useState('General Mode');
@@ -150,7 +151,7 @@ export default function GeneralMode() {
         <div className="absolute bottom-4 right-4">
           <button
             className="bg-[#414084] text-white p-4 rounded-full shadow-lg transition duration-300 hover:bg-[#555]"
-            onClick={() => navigate('/message')}
+            onClick={() => navigate('/indi-message')}
           >
             <span className="material-icons">message</span>
           </button>

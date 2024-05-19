@@ -14,7 +14,7 @@ const Login = ({ onLogin }) => {
     // Implement your authentication logic here
     if (username === 'user' && password === 'password') {
       onLogin(); // Call onLogin to update the authentication state
-      navigate('/'); // Navigate to the general mode page
+      navigate('/team-mode'); // Navigate to the team mode page
     } else {
       setError('Invalid username or password'); // Set error message for invalid login
     }
