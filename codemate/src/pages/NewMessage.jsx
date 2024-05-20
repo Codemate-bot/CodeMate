@@ -32,7 +32,9 @@ const NewMessage = () => {
 
   const handleModeChange = (mode) => {
     setCurrentMode(mode);
-    // Add navigation logic if required
+    if (mode === 'Team Mode') {
+      navigate('/team-mode');
+    }
   };
 
   return (
@@ -51,14 +53,7 @@ const NewMessage = () => {
           <div className={`w-full h-[1px] ${theme === 'light' ? 'bg-[#414084]' : 'bg-gray-500'}`} />
         </div>
         <div className={`lg:flex lg:flex-col ${isMenuOpen ? 'block' : 'hidden'} lg:block`}>
-          <div
-            className="rounded-[50px] bg-[#414084] relative mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555]"
-            onClick={() => navigate('/new-chat')}
-          >
-            <span className="font-['Poppins'] font-normal text-[15px] text-[#FFFFFF]">
-              New Chat
-            </span>
-          </div>
+          
           <div
             className="rounded-[50px] bg-[#414084] relative mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555]"
             onClick={() => navigate('/about')}
@@ -98,22 +93,6 @@ const NewMessage = () => {
         <div className={`flex flex-row justify-between p-1 w-full mb-1 box-sizing-border rounded-lg ${theme === 'light' ? 'bg-[#414084]' : 'bg-[#444]'}`}>
           <div className="rounded-[40px] border-[1px_solid_#CEDEBD] flex p- w-full max-w-[495px] box-sizing-border" style={{ borderColor: theme === 'light' ? '#CEDEBD' : '#555' }}>
             <div className="flex flex-row">
-              <div
-                className={`ml-4 p-4 cursor-pointer ${currentMode === 'General Mode' ? 'text-[#601f5d]' : 'text-[#FFFFFF]'}`}
-                onClick={() => handleModeChange('General Mode')}
-              >
-                <span className="rounded-[50px] bg-[#c578d2] relative mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555] font-['Poppins'] font-medium text-[13px]">
-                  General Mode
-                </span>
-              </div>
-              <div
-                className={`ml-4 p-4 cursor-pointer ${currentMode === 'Individual Mode' ? 'text-[#CEDEBD]' : 'text-[#FFFFFF]'}`}
-                onClick={() => handleModeChange('Individual Mode')}
-              >
-                <span className=" rounded-[50px] bg-[#c578d2] relative mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555] font-['Poppins'] font-medium text-[13px]">
-                  Individual Mode
-                </span>
-              </div>
               <div
                 className={`ml-4 p-4 cursor-pointer ${currentMode === 'Team Mode' ? 'text-[#CEDEBD]' : 'text-[#FFFFFF]'}`}
                 onClick={() => handleModeChange('Team Mode')}
