@@ -1,8 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Box, Button, Text, useToast } from "@chakra-ui/react";
 import { executeCode } from "../api";
-import CodeEditor from "./CodeEditor";
-import LanguageSelector from "./LanguageSelector";
 
 const Output = ({ editorRef, language }) => {
   const toast = useToast();
@@ -32,7 +30,7 @@ const Output = ({ editorRef, language }) => {
   };
 
   return (
-    <Box w="50%">
+    <Box w="90%">
       <Text mb={2} fontSize="lg" color="white">
         Output
       </Text>
@@ -40,6 +38,9 @@ const Output = ({ editorRef, language }) => {
         <Button
           colorScheme="white"
           variant="solid"
+          _hover={{ bg: "white", color: "black" }}
+          _active={{ bg: "white", color: "black" }}
+          _focus={{ boxShadow: "none" }}
           isLoading={isLoading}
           onClick={runCode}
         >

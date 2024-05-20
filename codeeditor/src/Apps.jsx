@@ -1,19 +1,15 @@
+import React from "react";
 import { Box } from "@chakra-ui/react";
 import CodeEditor from "./components/CodeEditor";
-import GeneralMode from "../../codemate/src/pages/GeneralMode";
-import App from "../../codemate/src/App";
-import IndividualMode from "../../codemate/src/pages/IndividualMode";
+import { LANGUAGE_VERSIONS } from "./constants";
 import LanguageSelector from "./components/LanguageSelector";
 import Output from "./components/Output";
-import React, { useState } from "react";
-import { LANGUAGE_VERSIONS, CODE_SNIPPETS } from "./constants";
-
 
 function Apps() {
   return (
     <Box minH="100vh" bg="#0f0a19" color="gray.500" px={6} py={8}>
-      <CodeEditor />
-      </Box>
+      <CodeEditor /> 
+    </Box>
   );
 }
 

@@ -13,8 +13,6 @@ import NormalUserPage from './pages/NormalUser';
 import AdminUserPage from './pages/AdminUser';
 import { ThemeProvider } from './pages/ThemeContext';
 import Apps from '../../codeeditor/src/Apps';
-import Appss from '../../Ai Bot/src/Appss';
-import CodeEditor from '../../codeeditor/src/components/CodeEditor';
 
 const App = () => {
   // Define a state to keep track of whether the user is authenticated for team mode
@@ -37,7 +35,8 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/home" element={<Home />} />
           <Route path="/new-message" element={<NewMessage />} />
-          <Route path="/message" element={<Appss />} />
+          <Route path="/message" element={<Message />} />
+          {/* Pass Apps as a child component of IndiMessage */}
           <Route path="/indi-message" element={<Apps />} />
           <Route path="/normal-user-page" element={<NormalUserPage />} />
           <Route path="/admin-user-page" element={<AdminUserPage />} />
