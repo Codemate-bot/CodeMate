@@ -5,6 +5,8 @@ import App from "../../codemate/src/App";
 import IndividualMode from "../../codemate/src/pages/IndividualMode";
 import LanguageSelector from "./components/LanguageSelector";
 import Output from "./components/Output";
+import React, { useState } from "react";
+import { LANGUAGE_VERSIONS, CODE_SNIPPETS } from "./constants";
 
 
 function Apps() {
