@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Box, Button, Text, useToast } from "@chakra-ui/react";
 import { executeCode } from "../api";
+import CodeEditor from "./CodeEditor";
+import LanguageSelector from "./LanguageSelector";
 
 const Output = ({ editorRef, language }) => {
   const toast = useToast();
@@ -31,25 +33,28 @@ const Output = ({ editorRef, language }) => {
 
   return (
     <Box w="50%">
-      <Text mb={2} fontSize="lg">
+      <Text mb={2} fontSize="lg" color="white">
         Output
       </Text>
-      <Button
-        variant="outline"
-        colorScheme="green"
-        mb={4}
-        isLoading={isLoading}
-        onClick={runCode}
-      >
-        Run Code
-      </Button>
+      <Box mb={4}>
+        <Button
+          colorScheme="white"
+          variant="solid"
+          isLoading={isLoading}
+          onClick={runCode}
+        >
+          Run Code
+        </Button>
+      </Box>
       <Box
         height="75vh"
         p={2}
-        color={isError ? "red.400" : ""}
+        color={isError ? "red.400" : "white"}
         border="1px solid"
         borderRadius={4}
         borderColor={isError ? "red.500" : "#333"}
+        bg={isError ? "red.50" : "green.50"}
+        overflow="auto"
       >
         {output
           ? output.map((line, i) => <Text key={i}>{line}</Text>)
@@ -58,4 +63,5 @@ const Output = ({ editorRef, language }) => {
     </Box>
   );
 };
+
 export default Output;

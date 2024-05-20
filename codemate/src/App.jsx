@@ -14,6 +14,7 @@ import AdminUserPage from './pages/AdminUser';
 import { ThemeProvider } from './pages/ThemeContext';
 import Apps from '../../codeeditor/src/Apps';
 import Appss from '../../Ai Bot/src/Appss';
+import CodeEditor from '../../codeeditor/src/components/CodeEditor';
 
 const App = () => {
   // Define a state to keep track of whether the user is authenticated for team mode
