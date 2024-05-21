@@ -1288,3 +1288,21 @@ video {
 .\#chew64 {
   animation-delay: 0.1s;
 }
+nav {
+  background-color: #333;
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav button {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background-color: #ddd;
+}
