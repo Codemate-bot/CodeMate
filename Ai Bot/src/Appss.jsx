@@ -2,6 +2,7 @@ import React from 'react';
 import { Webchat, WebchatProvider, getClient } from '@botpress/webchat';
 import './style.css';
 import { theme } from './theme';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 const clientId = '07657133-e358-45ea-b49e-f1eed1f6c698';
 
@@ -15,6 +16,7 @@ export default function Appss() {
   };
 
   return (
+    
     <div>
       <nav>
         <button onClick={handleBackToGeneralMode}>Back to General Mode</button>

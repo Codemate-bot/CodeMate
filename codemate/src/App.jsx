@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import GeneralMode from './pages/GeneralMode';
-import IndividualMode from './pages/IndividualMode';
 import TeamMode from './pages/TeamMode';
 import About from './pages/About';
 import Home from './pages/Home';
@@ -10,13 +9,13 @@ import Message from './pages/Message';
 import IndiMessage from './pages/indimessage';
 import Login from './pages/Login'; // Import the Login component
 import NormalUserPage from './pages/NormalUser';
-import AdminUserPage from './pages/AdminUser';
 import { ThemeProvider } from './pages/ThemeContext';
 import Apps from '../../codeeditor/src/Apps';
 import Appss from '../../Ai Bot/src/Appss';
 import CodeEditor from '../../codeeditor/src/components/CodeEditor';
 import LanguageSelector from '../../codeeditor/src/components/LanguageSelector';
 import Output from '../../codeeditor/src/components/Output';
+import AdminUserPage from './pages/AdminUser';
 
 const App = () => {
   // Define a state to keep track of whether the user is authenticated for team mode
@@ -33,7 +32,6 @@ const App = () => {
         <Routes>
           <Route path="/" element={<GeneralMode />} />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/individual-mode" element={<IndividualMode />} />
           {/* Render Team Mode without authentication */}
           <Route path="/team-mode" element={isTeamModeAuthenticated ? <TeamMode /> : <Navigate to="/login" />} />
           <Route path="/about" element={<About />} />

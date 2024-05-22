@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './admin.css'; // Import the CSS file
+{/*import './admin.css'; // Import the CSS file */}
 
 const AdminUserPage = () => {
   const [link, setLink] = useState('');
