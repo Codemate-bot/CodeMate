@@ -13,9 +13,9 @@ export default function GeneralMode() {
   const handleModeChange = (mode) => {
     setCurrentMode(mode);
     if (mode === 'Individual Mode') {
-      navigate('/individual-mode');
+      navigate("/indi-message");
     } else if (mode === 'Team Mode') {
-      navigate('/team-mode');
+     navigate("/new-message");
     } else {
       navigate('/');
     }
@@ -61,14 +61,7 @@ export default function GeneralMode() {
           <div className={`w-full h-[1px] ${theme === 'light' ? 'bg-[#414084]' : 'bg-gray-500'}`} />
         </div>
         <div className={`lg:flex lg:flex-col ${isMenuOpen ? 'block' : 'hidden'} lg:block`}>
-          <div
-            className="rounded-[50px] bg-[#414084] relative mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555]"
-            onClick={handleNewChat}
-          >
-            <span className="font-['Poppins'] font-normal text-[15px] text-[#FFFFFF]">
-              New Chat
-            </span>
-          </div>
+          
           <div
             className="rounded-[50px] bg-[#414084] relative mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555]"
             onClick={() => navigate('/about')}
