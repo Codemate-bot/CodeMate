@@ -1288,21 +1288,31 @@ video {
 .\#chew64 {
   animation-delay: 0.1s;
 }
+
 nav {
-  background-color: #333;
-  padding: 1em;
-  display: flex;
-  justify-content: space-between;
+  background-color:#cbffbe; /* Set background color */
+  padding: 1rem; /* Add padding */
 }
 
-nav button {
-  background-color: #fff;
-  color: #333;
-  border: none;
-  padding: 0.5em 1em;
-  cursor: pointer;
+button {
+  
+  background-color: #ffffff; /* Green background color */
+  border: none; /* Remove border */
+  color: white; /* White text color */
+  padding: 0.5rem 1rem; /* Add padding */
+  text-align: center; /* Center align text */
+  text-decoration: none; /* Remove default underline */
+  display: inline-block; /* Display as inline-block */
+  font-size: 16px; /* Set font size */
+  cursor: pointer; /* Add cursor pointer */
+  border-radius: 4px; /* Add border radius */
 }
 
-nav button:hover {
-  background-color: #ddd;
+button:hover {
+  background-color: #ffffff; /* Darker green background color on hover */
+}
+
+/* Style the button text specifically */
+button {
+  color: white;
 }

@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { Webchat, WebchatProvider, getClient } from '@botpress/webchat';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Box, Flex, Button } from "@chakra-ui/react";
 import './style.css';
 import { theme } from './theme';
+import GeneralMode from '../../codemate/src/pages/GeneralMode';
 
 const clientId = '07657133-e358-45ea-b49e-f1eed1f6c698';
 
@@ -15,29 +17,56 @@ const GeneralMode = () => {
   );
 };
 
-export default function Appss() {
-  const [mode, setMode] = useState('general'); // State to manage the mode
+const Appss = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const handleSwitchMode = () => {
+    navigate('/'); // Navigate to the general mode page
+  };
 
   return (
-    <BrowserRouter>
-      <div>
-        <nav>
-          <Link to="/codemate/src/pages/GeneralMode">
-            <button onClick={() => navigate('/codemate/src/pages/GeneralMode')}
-            >Back to General Mode</button>
-          </Link>
-        </nav>
-        
-            
+    <Box w="100%" h="100%" position="relative">
+      <Flex
+        p="4"
+        bg="blue.500"
+        color="white"
+        justify="space-between"
+        alignItems="center"
+        boxShadow="md"
+        borderRadius="lg"
+      >
+        <Box>
+          <Button 
+            colorScheme="white" 
+            size="lg" 
+            fontWeight="bold" 
+            onClick={handleSwitchMode}
+          >
+            Switch to General Mode
+          </Button>
+        </Box>
+        {/* You can add additional navbar items here if needed */}
+      </Flex>
+      
+      <Routes>
         <Route
           path="/"
-          render={() => (
+          element={
             <WebchatProvider client={getClient({ clientId })} theme={theme}>
-              <Webchat mode={mode} />
+              <Webchat mode="general" />
             </WebchatProvider>
-          )}
+          }
         />
-      </div>
-    </BrowserRouter>
+        <Route path="/general" element={<GeneralMode />} />
+      </Routes>
+    </Box>
+  );
+};
+
+export default function App() {
+  return (
+    <Router>
+      <Appss />
+    </Router>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
-import { Box, VStack, Flex, Heading } from "@chakra-ui/react";
+import { Box, Flex, Heading, Button } from "@chakra-ui/react";
 import { Editor } from "@monaco-editor/react";
+import { useNavigate } from 'react-router-dom';
 import LanguageSelector from "./LanguageSelector";
 import Output from "./Output";
 import { CODE_SNIPPETS } from "../constants";
@@ -9,6 +10,7 @@ const CodeEditor = () => {
   const editorRef = useRef();
   const [value, setValue] = useState("");
   const [language, setLanguage] = useState("javascript");
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const onMount = (editor) => {
     editorRef.current = editor;
@@ -20,11 +22,17 @@ const CodeEditor = () => {
     setValue(CODE_SNIPPETS[language]);
   };
 
+  const handleSwitchMode = () => {
+    navigate('/'); // Navigate to the general mode page
+  };
+
   return (
     <Box w="100%" h="100%">
       <Flex align="center" justify="space-between" p={4} bg="blue.500" color="white">
         <Heading size="md">Code Editor</Heading>
-        {/* Add your navbar items here */}
+        <Button onClick={handleSwitchMode} colorScheme="teal" size="sm">
+          Switch to General Mode
+        </Button>
       </Flex>
       <Box w="100%" h="50%">
         <Flex>
