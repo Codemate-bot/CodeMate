@@ -1,10 +1,21 @@
 import React from 'react';
-import NewMessage from './NewMessage';
-const NormalUserPage = () => {
+import './user.css'; // 
+const NormalUserPage = () => 
+ ({ sharedLink }) => {
   return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <h1 className="text-4xl font-bold mb-6">Normal User Page</h1>
-      <p className="text-lg">Welcome to the Normal User Page!</p>
+    <div className="user-page">
+      <div className="message-container">
+        {sharedLink ? (
+          <button
+            className="join-now-button"
+            onClick={() => window.open(sharedLink, '_blank')}
+          >
+            Join Now
+          </button>
+        ) : (
+          <p>No link shared by admin yet.</p>
+        )}
+      </div>
     </div>
   );
 };
