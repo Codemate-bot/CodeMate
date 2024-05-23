@@ -1,5 +1,14 @@
 import React from "react";
-import { Box, Button, Menu, MenuButton, MenuItem, MenuList, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Text,
+  color,
+} from "@chakra-ui/react";
 import { LANGUAGE_VERSIONS } from "../constants";
 
 const languages = Object.entries(LANGUAGE_VERSIONS);
@@ -7,9 +16,9 @@ const ACTIVE_COLOR = "blue.400";
 
 const LanguageSelector = ({ language, onSelect }) => {
   return (
-    <Box ml={2} mb={4}>
+    <Box ml={2} mb={4} display="flex" flexDirection="row" alignItems="center">
       <Text mb={2} fontSize={{ base: "md", md: "lg" }} color="pink">
-        Language:
+        Language : 
       </Text>
       <Menu isLazy>
         <MenuButton
@@ -23,8 +32,9 @@ const LanguageSelector = ({ language, onSelect }) => {
           _active={{ color: "pink", bg: "gray.800" }} // Ensure background and text color on active
           fontSize={{ base: "sm", md: "md" }}
           textAlign="left"
+          paddingLeft={5}
         >
-          {language}
+           {language}
         </MenuButton>
         <MenuList bg="#110c1b" color="blue" borderColor="gray.700">
           {languages.map(([lang, version]) => (
@@ -42,7 +52,10 @@ const LanguageSelector = ({ language, onSelect }) => {
               onClick={() => onSelect(lang)}
             >
               <Text>
-                {lang} <Text as="span" color="gray.600" fontSize="sm">({version})</Text>
+                {lang}{" "}
+                <Text as="span" color="gray.600" fontSize="sm">
+                  ({version})
+                </Text>
               </Text>
             </MenuItem>
           ))}
