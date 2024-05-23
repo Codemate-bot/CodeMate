@@ -45,9 +45,11 @@ const NewMessage = () => {
         }`}
       >
         <div className="relative m-0 lg:m-0 lg:self-center flex justify-between items-center box-sizing-border">
-          <span className="font-bold text-2xl text-white">CodeMate</span>
+          <span className="font-['Poppins'] font-bold text-[26px] leading-[1] text-[#FFFFFF]">
+            CodeMate
+          </span>
           <button className="lg:hidden text-white">
-            <span className="material-icons">menu</span>
+            <span className="material-icons">Menu</span>
           </button>
         </div>
         <div className="relative mt-10 mb-10 w-full h-[1px] box-sizing-border">
@@ -62,26 +64,40 @@ const NewMessage = () => {
             className="rounded-full bg-[#414084] mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555]"
             onClick={() => navigate("/about")}
           >
-            <span className="text-white">About</span>
+            <span className="font-['Poppins'] font-normal text-[15px] text-[#FFFFFF]">
+              About
+            </span>
           </div>
           <div
             className="rounded-full bg-[#414084] mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555]"
             onClick={() => navigate("/home")}
           >
-            <span className="text-white">Home</span>
+            <span className="font-['Poppins'] font-normal text-[15px] text-[#FFFFFF]">
+              Home
+            </span>
           </div>
           <div className="flex-grow" />
           <div
             className="rounded-full bg-[#49625b] mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555]"
             onClick={handleBackToDiscord}
           >
-            <span className="font-semibold text-white">Back to Discord</span>
+            <span
+              className="font-['Poppins'] font-semibold  text-[15px] text-[#FFFFFF]"
+              onClick={() =>
+                (window.location.href =
+                  "https://discord.com/channels/1113434190541750284/1210132991876276254")
+              }
+            >
+              Back to Discord
+            </span>
           </div>
           <div
             className="rounded-full bg-[#cbffbe] mb-4 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555]"
             onClick={handleLogOut}
           >
-            <span className="font-semibold text-[#3a2e2e]">Log Out</span>
+            <span className="font-['Poppins'] font-semibold text-[15px] text-[#161313]">
+              Log Out
+            </span>
           </div>
         </div>
       </div>
@@ -93,29 +109,35 @@ const NewMessage = () => {
         >
           <div className="flex flex-row items-center">
             <button
-              className="bg-white text-[#414084] p-2 rounded-full mr-4"
+              className="bg-white font-['Poppins'] font-normal text-[15px] text-[#1f2c68] p-2 rounded-full mr-4"
               onClick={() => setSelectedRole("Normal User")}
             >
               Normal User
             </button>
             <button
-              className="bg-white text-[#414084] p-2 rounded-full"
+              className="bg-white font-['Poppins'] font-normal text-[15px] text-[#1f2c68] p-2 rounded-full"
               onClick={() => setSelectedRole("Admin User")}
             >
               Admin User
             </button>
           </div>
-          <div className="flex items-center">
+          <div className="flex flex-row items-center box-sizing-border">
             <button
-              className="bg-white p-1 rounded-full shadow-md"
+              className="bg-slate-200 p-1 rounded-full shadow-md"
               onClick={toggleTheme}
             >
               <div
                 className={`rounded-full ${
-                  theme === "light" ? "bg-[#25293F]" : "bg-[#FFFFFF]"
+                  theme === "light" ? "bg-[#b01da6]" : "bg-[#000000]"
                 } w-5 h-5 transition duration-300`}
               />
             </button>
+            <div
+              className="rounded-full bg-[#c578d2] relative ml-5 p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555] font-['Poppins'] font-medium text-[13px] "
+              onClick={() => navigate("/login")}
+            >
+              Login{" "}
+            </div>
           </div>
         </div>
         <div className="flex flex-col justify-center items-center flex-grow p-6">
@@ -167,6 +189,20 @@ const NewMessage = () => {
               )}
             </div>
           )}
+        </div>
+        <div className="flex-grow" />
+        <div className="absolute bottom-4 right-4">
+          <button
+            className="bg-[#ffffff] size-12 rounded-full shadow-lg transition duration-300 hover:bg-[#555]"
+            onClick={() => navigate("/message")}
+          >
+            <span className="material-icons">
+              <img
+                src="https://img.icons8.com/?size=100&id=FpVS74LDFYc2&format=png&color=000000"
+                alt=""
+              />
+            </span>
+          </button>
         </div>
       </div>
     </div>
