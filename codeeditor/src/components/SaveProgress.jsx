@@ -22,14 +22,13 @@ const SaveProgress = ({ onSave }) => {
       onClick={saveFile}
       colorScheme="blackAlpha"
       size="sm"
-      position="absolute"
+      position="initial"
       bottom="20px"
       right="10px"
-      color="white"
-      bg="black"
+      color="green"
       _hover={{ bg: "gray.700" }}
       _focus={{ color: "yellow", bg: "black", boxShadow: "outline" }}
-      _active={{ color: "white", bg: "black" }}
+      _active={{ color: "green", bg: "black" }}
     >
       Save Progress
     </Button>
