@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Box, Flex, Heading, Button } from "@chakra-ui/react";
 import { Editor } from "@monaco-editor/react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import LanguageSelector from "./LanguageSelector";
 import Output from "./Output";
 import SaveProgress from "./SaveProgress";
@@ -24,7 +24,7 @@ const CodeEditor = () => {
   };
 
   const handleSwitchMode = () => {
-    navigate('/');
+    navigate("/");
   };
 
   useEffect(() => {
@@ -37,24 +37,67 @@ const CodeEditor = () => {
 
   const saveProgress = () => {
     const currentCode = editorRef.current.getValue();
-    localStorage.setItem("codeEditorContent", JSON.stringify({ language, code: currentCode }));
+    localStorage.setItem(
+      "codeEditorContent",
+      JSON.stringify({ language, code: currentCode })
+    );
     alert("Progress saved!");
   };
 
+  const startCollaboration = () => {
+    // starting real-time collaboration
+
+    alert("Collaboration started!");
+  };
+
+  const openChat = () => {
+    // opening chat functionality
+    alert("Chat opened!");
+  };
+
   return (
-    <Box w="100%" h="100%" position="relative">
-      <Flex align="center" justify="space-between" p={4} bg="blue.500" color="yellow">
-        <Heading size="md">Code Editor</Heading>
+    <Box w="100%" h="100%" position="relative" overflow="hidden">
+      <Heading size="md" textColor="red" textAlign={"center"}>
+        CodeMate
+      </Heading>
+      <Flex
+        align="center"
+        justify="space-evenly"
+        p={4}
+        bg="blue.500"
+        color="yellow"
+      >
         <Button
           onClick={handleSwitchMode}
           colorScheme="teal"
           size="sm"
-          _focus={{ color: "white", bg: "teal.500", boxShadow: "outline" }}
-          _active={{ color: "white", bg: "teal.600" }}
+          _focus={{ color: "green", bg: "teal.500", boxShadow: "outline" }}
+          _active={{ color: "green", bg: "teal.600" }}
         >
-          Switch to General Mode
+          General Mode
         </Button>
+        <SaveProgress onSave={saveProgress} />
+        <Button
+          onClick={handleSwitchMode}
+          colorScheme="teal"
+          size="sm"
+          _focus={{ color: "green", bg: "teal.500", boxShadow: "outline" }}
+          _active={{ color: "green", bg: "teal.600" }}
+        >
+          Chat
+        </Button>
+        <Button
+          onClick={openChat}
+          colorScheme="teal"
+          size="sm"
+          _focus={{ color: "green", bg: "teal.500", boxShadow: "outline" }}
+          _active={{ color: "green", bg: "teal.600" }}
+        >
+          Collaboration
+        </Button>
+        <LanguageSelector language={language} onSelect={onSelect} zIndex="5" />
       </Flex>
+
       <Box w="100%" h="50%">
         <Flex>
           <Box flex="1" maxW="50%" zIndex="0">
@@ -73,13 +116,11 @@ const CodeEditor = () => {
               onChange={(value) => setValue(value)}
             />
           </Box>
-          <Box flex="1" maxW="50%" h="100%" position="relative">
+          <Box flex="1" maxW="50%" h="100%" position="inherit">
             <Output editorRef={editorRef} language={language} />
-            <SaveProgress onSave={saveProgress} />
           </Box>
         </Flex>
       </Box>
-      <LanguageSelector language={language} onSelect={onSelect} zIndex="1" />
     </Box>
   );
 };
