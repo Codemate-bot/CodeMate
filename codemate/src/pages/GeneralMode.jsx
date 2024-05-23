@@ -62,8 +62,12 @@ export default function GeneralMode() {
           <span className="font-['Poppins'] font-bold text-[26px] leading-[1] text-[#FFFFFF]">
             CodeMate
           </span>
-          <button className="lg:hidden text-white" onClick={toggleMenu}>
-            <span className="material-icons">menu</span>
+          <button
+            className="lg:hidden font-['Poppins'] font-normal text-[10px] text-[#FFFFFF]"
+            onClick={toggleMenu}
+            url=""
+          >
+            <span className="material-icons">Menu</span>
           </button>
         </div>
         <div
@@ -134,7 +138,7 @@ export default function GeneralMode() {
               <div
                 className={`ml-4 p-4 cursor-pointer ${
                   currentMode === "General Mode"
-                    ? "text-[#f0f0f0]"
+                    ? "text-[#ffffff]"
                     : "text-[#FFFFFF]"
                 }`}
                 onClick={() => handleModeChange("General Mode")}
@@ -146,7 +150,7 @@ export default function GeneralMode() {
               <div
                 className={`ml-4 p-4 cursor-pointer ${
                   currentMode === "Individual Mode"
-                    ? "text-[#CEDEBD]"
+                    ? "text-[#ffffff]"
                     : "text-[#FFFFFF]"
                 }`}
                 onClick={() => handleModeChange("Individual Mode")}
@@ -158,7 +162,7 @@ export default function GeneralMode() {
               <div
                 className={`ml-4 p-4 cursor-pointer ${
                   currentMode === "Team Mode"
-                    ? "text-[#CEDEBD]"
+                    ? "text-[#ffffff]"
                     : "text-[#FFFFFF]"
                 }`}
                 onClick={() => handleModeChange("Team Mode")}
@@ -171,23 +175,22 @@ export default function GeneralMode() {
           </div>
           <div className="flex flex-row items-center box-sizing-border">
             <div
-              className="shadow-[0px_0px_14px_0px_rgba(0,0,0,0.15)] rounded-[20px] bg-[#FFFFFF] flex items-center p-1 mr-5 w-[30px] h-[23px] box-sizing-border cursor-pointer transition duration-300 hover:shadow-[0px_0px_14px_0px_rgba(0,0,0,0.3)]"
+              className="bg-slate-200 rounded-full shadow-md flex items-center p-1 mr-5 w-[30px] h-[30px] box-sizing-border cursor-pointer transition duration-300 hover:shadow-[0px_0px_14px_0px_rgba(0,0,0,0.3)]"
               onClick={toggleTheme}
             >
               <div
-                className={`rounded-[20px] ${
-                  theme === "light" ? "bg-[#3eb43edd]" : "bg-[#3e57fa]"
-                } w-[19px] h-[19px] ml-auto mr-1 transition duration-300`}
+                className={`rounded-full ${
+                  theme === "light" ? "bg-[#b01da6]" : "bg-[#000000]"
+                }  w-5 h-5 transition duration-300`}
               />
             </div>
 
             <div
-              className="rounded-[50px] bg-[#c578d2] relative  p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555] font-['Poppins'] font-medium text-[13px] "
+              className="rounded-full bg-[#c578d2] relative  p-2 w-full text-center cursor-pointer transition duration-300 hover:bg-[#555] font-['Poppins'] font-medium text-[13px] "
               onClick={() => navigate("/login")}
             >
               Login{" "}
             </div>
-
           </div>
         </div>
         <div className="flex-grow" />
