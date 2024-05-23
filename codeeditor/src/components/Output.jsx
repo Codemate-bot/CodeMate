@@ -31,15 +31,13 @@ const Output = ({ editorRef, language }) => {
 
   return (
     <Box w="90%">
-      <Text mb={2} fontSize="lg" color="yellow">
-        Output
-      </Text>
       <Box mb={4}>
         <Button
-          colorScheme="white"
+          colorScheme="#0D5349"
+          background={"#1E9744"}
           variant="solid"
-          _hover={{ bg: "black", color: "white" }}
-          _active={{ bg: "white", color: "black" }}
+          _hover={{ bg: "#03B117E0", color: "black" }}
+          _active={{ bg: "#03B117E0", color: "black" }}
           _focus={{ boxShadow: "none" }}
           isLoading={isLoading}
           onClick={runCode}
@@ -47,6 +45,9 @@ const Output = ({ editorRef, language }) => {
           Run Code
         </Button>
       </Box>
+      <Text mb={2} fontSize="lg" color="white">
+        Output
+      </Text>
       <Box
         height="75vh"
         p={2}
