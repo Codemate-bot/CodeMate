@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@botpress/webchat": "^1.3.9"
+    "@botpress/webchat": "^1.3.9",
+    "file-saver": "^2.0.5"
   }
 }

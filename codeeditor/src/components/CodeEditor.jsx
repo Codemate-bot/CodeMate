@@ -1,18 +1,17 @@
-// CodeEditor.jsx
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Box, Flex, Heading, Button } from "@chakra-ui/react";
 import { Editor } from "@monaco-editor/react";
 import { useNavigate } from 'react-router-dom';
 import LanguageSelector from "./LanguageSelector";
 import Output from "./Output";
-import SaveProgress from "./saveprogress";
+import SaveProgress from "./SaveProgress";
 import { CODE_SNIPPETS } from "../constants";
 
 const CodeEditor = () => {
   const editorRef = useRef();
   const [value, setValue] = useState("");
   const [language, setLanguage] = useState("javascript");
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const onMount = (editor) => {
     editorRef.current = editor;
@@ -25,12 +24,19 @@ const CodeEditor = () => {
   };
 
   const handleSwitchMode = () => {
-    navigate('/'); // Navigate to the general mode page
+    navigate('/');
   };
+
+  useEffect(() => {
+    const currentCode = localStorage.getItem("codeEditorContent");
+    if (currentCode) {
+      const { code } = JSON.parse(currentCode);
+      setValue(code);
+    }
+  }, []);
 
   const saveProgress = () => {
     const currentCode = editorRef.current.getValue();
-    // Save the current code to local storage or any other storage solution
     localStorage.setItem("codeEditorContent", JSON.stringify({ language, code: currentCode }));
     alert("Progress saved!");
   };
@@ -43,8 +49,8 @@ const CodeEditor = () => {
           onClick={handleSwitchMode}
           colorScheme="teal"
           size="sm"
-          _focus={{ color: "white", bg: "teal.500", boxShadow: "outline" }} // Retain background and text color on focus
-          _active={{ color: "white", bg: "teal.600" }} // Retain background and text color on active
+          _focus={{ color: "white", bg: "teal.500", boxShadow: "outline" }}
+          _active={{ color: "white", bg: "teal.600" }}
         >
           Switch to General Mode
         </Button>
@@ -69,7 +75,7 @@ const CodeEditor = () => {
           </Box>
           <Box flex="1" maxW="50%" h="100%" position="relative">
             <Output editorRef={editorRef} language={language} />
-            <SaveProgress onSave={saveProgress} /> {/* Add SaveProgress component */}
+            <SaveProgress onSave={saveProgress} />
           </Box>
         </Flex>
       </Box>

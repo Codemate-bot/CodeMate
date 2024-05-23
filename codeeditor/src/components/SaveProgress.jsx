@@ -1,11 +1,25 @@
-// SaveProgress.jsx
 import React from 'react';
 import { Button } from '@chakra-ui/react';
+import { saveAs } from 'file-saver';
 
 const SaveProgress = ({ onSave }) => {
+  const saveFile = () => {
+    const currentCode = localStorage.getItem("codeEditorContent");
+    if (currentCode) {
+      const { language, code } = JSON.parse(currentCode);
+      const blob = new Blob([code], { type: "text/plain;charset=utf-8" });
+      const date = new Date().toISOString().replace(/[:.]/g, '-');
+      const filename = `code-${language}-${date}.txt`;
+      saveAs(blob, filename);
+      alert("Code saved successfully!");
+    } else {
+      alert("No code to save!");
+    }
+  };
+
   return (
     <Button
-      onClick={onSave}
+      onClick={saveFile}
       colorScheme="blackAlpha"
       size="sm"
       position="absolute"
@@ -14,8 +28,8 @@ const SaveProgress = ({ onSave }) => {
       color="white"
       bg="black"
       _hover={{ bg: "gray.700" }}
-      _focus={{ color: "yellow", bg: "black", boxShadow: "outline" }} // Retain background and text color on focus
-      _active={{ color: "white", bg: "black" }} // Retain background and text color on active
+      _focus={{ color: "yellow", bg: "black", boxShadow: "outline" }}
+      _active={{ color: "white", bg: "black" }}
     >
       Save Progress
     </Button>

@@ -31,14 +31,14 @@ const Output = ({ editorRef, language }) => {
 
   return (
     <Box w="90%">
-      <Text mb={2} fontSize="lg" color="white">
+      <Text mb={2} fontSize="lg" color="yellow">
         Output
       </Text>
       <Box mb={4}>
         <Button
           colorScheme="white"
           variant="solid"
-          _hover={{ bg: "white", color: "black" }}
+          _hover={{ bg: "black", color: "white" }}
           _active={{ bg: "white", color: "black" }}
           _focus={{ boxShadow: "none" }}
           isLoading={isLoading}
