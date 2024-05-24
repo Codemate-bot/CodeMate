@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "./ThemeContext";
 import Login from "./Login";
-import Appss from "../../../Ai Bot/src/Appss";
+
 export default function GeneralMode() {
   const [currentMode, setCurrentMode] = useState("General Mode");
   const [isLoginVisible, setIsLoginVisible] = useState(false); // State to manage login form visibility

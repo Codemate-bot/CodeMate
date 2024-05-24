@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from './ThemeContext';
 import Login from './Login';
-import Apps from '../../../codeeditor/src/Apps';
-import CodeEditor from '../../../codeeditor/src/components/CodeEditor';
-import LanguageSelector from '../../../codeeditor/src/components/LanguageSelector';
-import Output from '../../../codeeditor/src/components/Output';
+
 
 export default function GeneralMode() {
   const [currentMode, setCurrentMode] = useState('General Mode');
