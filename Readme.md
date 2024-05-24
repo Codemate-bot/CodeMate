@@ -11,8 +11,8 @@ To get started, follow the instructions below based on your desired mode:
 Perfect for individual users who want to work on their own projects or tasks.
 
 1. Click on the "Individual" mode option in the navigation menu.
-2. Write your queries or code in the provided text area.
-3. Click the "Execute" button to run the code.
+2. Write your code in the provided text area.
+3. Click the "Run Code" button to run the code.
 4. View the output in the console below.
 
 ### General Mode
@@ -20,8 +20,7 @@ Perfect for individual users who want to work on their own projects or tasks.
 Explore research and development resources with a built-in feedback mechanism.
 
 1. Click on the "General" mode option in the navigation menu.
-2. Use the search bar to find research topics or development resources.
-3. Submit your feedback using the provided form.
+2. Use bot to find research topics or development resources.
 
 ### Team Mode
 
